@@ -22,7 +22,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UrL-ON-YO1">
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UrL-ON-YO1">
                                 <rect key="frame" x="47" y="90" width="320" height="200"/>
                                 <gestureRecognizers/>
                                 <constraints>
@@ -81,14 +81,16 @@
                     </view>
                     <connections>
                         <outlet property="imageview" destination="UrL-ON-YO1" id="l6e-zj-XcY"/>
+                        <outlet property="nex" destination="VbB-wI-vJ2" id="Abs-Ug-eIN"/>
+                        <outlet property="pre" destination="Ssa-5J-Bb5" id="8JK-58-HL4"/>
                         <outlet property="ss" destination="bce-bn-0R3" id="Ouw-Wh-BET"/>
-                        <segue destination="33t-8B-mYG" kind="show" identifier="nextpage" id="zJI-Am-n4a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="f5n-Kp-7Vw">
                     <connections>
-                        <action selector="nextpage:" destination="BYZ-38-t0r" id="Csh-OM-BxP"/>
+                        <action selector="pagev:" destination="BYZ-38-t0r" id="CQY-Wp-SYs"/>
+                        <segue destination="33t-8B-mYG" kind="show" identifier="nextpage" id="53t-sx-CGk"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -113,7 +115,7 @@
                                     <segue destination="MQg-bW-WIQ" kind="unwind" unwindAction="unwindWithSegue:" id="sDB-tv-SXV"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7DF-Eo-HOG">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7DF-Eo-HOG">
                                 <rect key="frame" x="72" y="53" width="270" height="500"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="500" id="RUW-pp-ANR"/>

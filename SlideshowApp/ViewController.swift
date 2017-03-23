@@ -10,6 +10,13 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var pre: UIButton!
+    
+    @IBOutlet weak var nex: UIButton!
+    
+    @IBAction func pagev(_ sender: Any) {
+        performSegue(withIdentifier: "nextpage", sender: nil)
+    }
     let photo = [
         "IMG_1986 (1).jpg",
         "IMG_8920.jpg",
@@ -18,9 +25,7 @@ class ViewController: UIViewController {
         ]
 
     
-    @IBAction func nextpage(_ sender: Any) {
-        performSegue(withIdentifier: "nextpage", sender: nil)
-    }
+
     
     var timer: Timer!
     
@@ -29,11 +34,15 @@ class ViewController: UIViewController {
         if self.timer == nil{
         self.timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
             ss.setTitle("停止", for: UIControlState.normal)
+            pre.isEnabled = false
+            nex.isEnabled = false
             }
       else{
             ss.setTitle("再生", for: UIControlState.normal)
             self.timer.invalidate()
             self.timer = nil
+            pre.isEnabled = true
+            nex.isEnabled = true
     }
     }
     
@@ -91,7 +100,17 @@ class ViewController: UIViewController {
         let next : NextViewController = segue.destination as! NextViewController
         next.x = imageno
         next.photos = photo
+        if self.timer != nil{
+            self.timer.invalidate()
+            self.timer = nil
+            ss.setTitle("再生", for: UIControlState.normal)
+            pre.isEnabled = true
+            nex.isEnabled = true
+            
+        }
     }
+    
+    
     @IBAction func unwind(segue: UIStoryboardSegue) {
     }
 
